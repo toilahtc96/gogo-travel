@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         } catch (JwtException ex) {
             logger.error("Invalid JWT token", ex);
-            // Handle invalid token exceptions (e.g., sending an unauthorized response)
+            // Handle invalid token exceptions (e.g., sending an unauthorized response)-
         }
 
         filterChain.doFilter(request, response);
