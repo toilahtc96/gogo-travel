@@ -11,6 +11,7 @@ public class MyCorsConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("http://localhost:3000/") // Allowed origin
+                .allowedOrigins("http://gogotravelvn.com/") // Allowed origin
                 .allowedMethods("GET", "POST", "PUT", "DELETE") // Allowed methods
                 .allowedHeaders("*"); // Allow all headers (not recommended for production)
     }
