@@ -9,7 +9,10 @@ public class MainInformationConverted {
         return MainInformation.builder()
                 .id(mainInformationRequest.getId())
                 .title(mainInformationRequest.getTitle())
-                .description(mainInformationRequest.getDescription())
+                .subtitle(mainInformationRequest.getSubtitle())
+                .smallInformation1(mainInformationRequest.getSmallInformation1())
+                .smallInformation2(mainInformationRequest.getSmallInformation2())
+                .heroImage(mainInformationRequest.getHeroImage())
                 .status(Status.ACTIVE)
                 .build();
     }

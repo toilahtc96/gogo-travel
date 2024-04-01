@@ -1,11 +1,14 @@
 package com.travel.gogo.request;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 public class MainInformationRequest {
     private Integer id;
     private String title;
-    private String description;
+    private String subtitle;
+    private String smallInformation1;
+    private String smallInformation2;
+    private String heroImage;
     private boolean status;
 }

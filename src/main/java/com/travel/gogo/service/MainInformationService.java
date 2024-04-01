@@ -36,7 +36,10 @@ public class MainInformationService {
         int id = mainInformationRequest.getId();
         MainInformation mainInformation = mainInformationRepository.findById(id).orElse(null);
         mainInformation.setTitle(mainInformationRequest.getTitle());
-        mainInformation.setDescription(mainInformationRequest.getDescription());
+        mainInformation.setSubtitle(mainInformationRequest.getSubtitle());
+        mainInformation.setSmallInformation1(mainInformationRequest.getSmallInformation1());
+        mainInformation.setSmallInformation2(mainInformationRequest.getSmallInformation2());
+        mainInformation.setHeroImage(mainInformationRequest.getHeroImage());
         try {
             mainInformationRepository.save(mainInformation);
             return true;
