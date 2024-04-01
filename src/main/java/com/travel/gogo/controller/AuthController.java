@@ -3,19 +3,16 @@ package com.travel.gogo.controller;
 import com.travel.gogo.entity.Users;
 import com.travel.gogo.request.LoginRequest;
 import com.travel.gogo.request.RegisterRequest;
-import com.travel.gogo.security.JwtTokenProvider;
 import com.travel.gogo.service.AuthenService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.security.core.AuthenticationException;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/api/v1/authentication")
+@CrossOrigin(origins = "https://master.d3fh743yx2o5bu.amplifyapp.com/")
 public class AuthController {
 
     private final AuthenService authenService;

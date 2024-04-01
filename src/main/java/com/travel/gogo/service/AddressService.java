@@ -2,17 +2,9 @@ package com.travel.gogo.service;
 
 import com.travel.gogo.constans.Status;
 import com.travel.gogo.converted.AddressConverted;
-import com.travel.gogo.converted.RoleConverted;
 import com.travel.gogo.entity.Address;
-import com.travel.gogo.entity.Role;
 import com.travel.gogo.repository.AddressRepository;
-import com.travel.gogo.repository.RoleRepository;
 import com.travel.gogo.request.AddressRequest;
-import com.travel.gogo.request.RoleRequest;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

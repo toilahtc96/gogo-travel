@@ -2,19 +2,12 @@ package com.travel.gogo.service;
 
 import com.travel.gogo.constans.Status;
 import com.travel.gogo.converted.RegistrationConverted;
-import com.travel.gogo.converted.RegistrationConverted;
-import com.travel.gogo.entity.Registrations;
 import com.travel.gogo.entity.Registrations;
 import com.travel.gogo.repository.RegistrationRepository;
-import com.travel.gogo.repository.RegistrationRepository;
 import com.travel.gogo.request.RegistrationRequest;
-import com.travel.gogo.request.RegistrationRequest;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.List;
 
