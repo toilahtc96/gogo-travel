@@ -24,13 +24,22 @@ public class Registrations {
     private Integer id;
     @Basic
     @Column(name = "post_id")
-    private int postId;
+    private Integer postId;
     @Basic
     @Column(name = "name")
     private String name;
     @Basic
     @Column(name = "phone")
     private String phone;
+    @Basic
+    @Column(name = "email")
+    private String email;
+    @Basic
+    @Column(name = "tour_name")
+    private String tourName;
+    @Basic
+    @Column(name = "information")
+    private String information;
     @Basic
     @Column(name = "created_time")
     private LocalDateTime createdTime;
