@@ -61,4 +61,7 @@ public class MainInformationService {
         }
     }
 
+    public MainInformation getFirstActive() {
+        return mainInformationRepository.findFirstByStatus(Status.ACTIVE);
+    }
 }
