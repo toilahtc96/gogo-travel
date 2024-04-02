@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("public/company-information")
 @AllArgsConstructor
-@CrossOrigin
+@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
 public class CompanyInformationPublicController {
 
     private final CompanyInformationService companyInformationService;

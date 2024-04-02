@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/authentication")
-@CrossOrigin(origins = "https://master.d3fh743yx2o5bu.amplifyapp.com/")
+@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
 public class AuthController {
 
     private final AuthenService authenService;

@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/registration")
 @AllArgsConstructor
+@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
 public class RegistrationController {
     private final RegistrationService registrationService;
 
@@ -23,7 +24,7 @@ public class RegistrationController {
 
     @PatchMapping("/edit")
     public ResponseEntity editRegistration(@RequestBody RegistrationRequest registrationRequest) {
-        if(registrationService.editRegistration(registrationRequest)){
+        if (registrationService.editRegistration(registrationRequest)) {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();
@@ -32,7 +33,7 @@ public class RegistrationController {
     @GetMapping("/get-by-id")
     public ResponseEntity<Registrations> getById(@RequestParam int id) {
         Registrations registration = registrationService.getById(id);
-        if(registration == null) {
+        if (registration == null) {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(registration);
@@ -44,9 +45,15 @@ public class RegistrationController {
         return ResponseEntity.ok(registrations);
     }
 
+    @GetMapping("/get-page")
+    public ResponseEntity<List<Registrations>> getPage(@RequestParam("size") int size, @RequestParam("page") int page) {
+        List<Registrations> registrations = registrationService.getPage(page, size);
+        return ResponseEntity.ok(registrations);
+    }
+
     @DeleteMapping("/delete")
     public ResponseEntity deleteById(@RequestParam int id) {
-        if(registrationService.deleteById(id)){
+        if (registrationService.deleteById(id)) {
             return ResponseEntity.ok().build();
         }
         return ResponseEntity.notFound().build();

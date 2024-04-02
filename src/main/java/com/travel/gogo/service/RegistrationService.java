@@ -6,10 +6,14 @@ import com.travel.gogo.entity.Registrations;
 import com.travel.gogo.repository.RegistrationRepository;
 import com.travel.gogo.request.RegistrationRequest;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 @AllArgsConstructor
@@ -49,7 +53,14 @@ public class RegistrationService {
     }
 
     public List<Registrations> getAll() {
-        return registrationRepository.findAll();
+        return
+                StreamSupport.stream(registrationRepository.findAll().spliterator(), false)
+                        .collect(Collectors.toList());
+    }
+
+    public List<Registrations> getPage(int pageNumber, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNumber, pageSize);
+        return registrationRepository.findAll(pageable);
     }
 
     public boolean deleteById(int id) {

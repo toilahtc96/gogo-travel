@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/company-information")
 @AllArgsConstructor
+@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
 public class CompanyInformationController {
     private final CompanyInformationService companyInformationService;
 

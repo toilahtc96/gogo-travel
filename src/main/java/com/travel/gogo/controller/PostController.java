@@ -12,6 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("api/v1/post")
 @AllArgsConstructor
+@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
 public class PostController {
     private final PostService postService;
 

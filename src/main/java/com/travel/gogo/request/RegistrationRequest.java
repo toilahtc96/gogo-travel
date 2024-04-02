@@ -1,14 +1,12 @@
 package com.travel.gogo.request;
 
 import com.travel.gogo.constans.Status;
-import jakarta.persistence.Basic;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDateTime;
 
 @Getter
 public class RegistrationRequest {
@@ -17,4 +15,7 @@ public class RegistrationRequest {
     private String name;
     private String phone;
     private Status status;
+    private String email;
+    private String tourName;
+    private String information;
 }
