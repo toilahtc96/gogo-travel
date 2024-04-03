@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/api/v1/main-information")
 @CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
 public class MainInformationController {
 
@@ -47,7 +48,7 @@ public class MainInformationController {
         return ResponseEntity.ok(mainInformation);
     }
 
-    @PostMapping("/edit")
+    @PatchMapping("/edit")
     public ResponseEntity edit(@RequestBody MainInformationRequest mainInformationRequest) {
         if (mainInformationService.editMainInfor(mainInformationRequest)) {
             return ResponseEntity.ok().build();

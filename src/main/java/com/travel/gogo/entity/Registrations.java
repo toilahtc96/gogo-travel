@@ -22,28 +22,28 @@ public class Registrations {
     @Id
     @Column(name = "id")
     private Integer id;
-    @Basic
+    
     @Column(name = "post_id")
     private Integer postId;
-    @Basic
+    
     @Column(name = "name")
     private String name;
-    @Basic
+    
     @Column(name = "phone")
     private String phone;
-    @Basic
+    
     @Column(name = "email")
     private String email;
-    @Basic
+    
     @Column(name = "tour_name")
     private String tourName;
-    @Basic
+    
     @Column(name = "information")
     private String information;
-    @Basic
+    
     @Column(name = "created_time")
     private LocalDateTime createdTime;
-    @Basic
+    
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;

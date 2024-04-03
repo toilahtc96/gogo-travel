@@ -28,33 +28,33 @@ public class Users implements UserDetails {
     @Id
     @Column(name = "id")
     private Integer id;
-    @Basic
+    
     @Column(name = "name")
     private String name;
 
-    @Basic
+    
     @Column(name = "username")
     private String username;
 
-    @Basic
+    
     @Column(name = "password")
     private String password;
-    @Basic
+    
     @Column(name = "role_id")
     private int roleId;
-    @Basic
+    
     @Column(name = "full_name")
     private String fullName;
-    @Basic
+    
     @Column(name = "phone")
     private String phone;
-    @Basic
+    
     @Column(name = "email")
     private String email;
-    @Basic
+    
     @Column(name = "created_time")
     private LocalDateTime createdTime;
-    @Basic
+    
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;

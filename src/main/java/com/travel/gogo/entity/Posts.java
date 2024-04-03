@@ -6,11 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.Length;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Entity
 @Data
@@ -22,28 +20,40 @@ public class Posts {
     @Id
     @Column(name = "id")
     private Integer id;
-    @Basic
-    @Column(name = "user_id")
-    private int userId;
-    @Basic
-    @Column(name = "address_id")
-    private int addressId;
-    @Basic
-    @Column(name = "title")
-    private String title;
-    @Basic
-    @Column(name = "content")
-    private String content;
-    @Basic
-    @Column(name = "thumbnail")
-    private String thumbnail;
-    @Basic
-    @Column(name = "content_image")
-    private String contentImage;
-    @Basic
+    
+    @Column(name = "tour_code")
+    private String tourCode;
+    
+    @Column(name = "day_in_tour")
+    private String dayInTour;
+    
+    @Column(name = "tour_name")
+    private String tourName;
+    
+    @Column(name = "tour_small_information")
+    private String tourSmallInformation;
+    
+    @Column(name = "price_once_person")
+    private String priceOncePerson;
+
+    @Column(name = "benefit", length = Length.LONG)
+    private String benefit;
+
+    @Column(name = "special_in_tour", length = Length.LONG)
+    private String specialInTour;
+
+    @Column(name = "main_background_url", length = Length.LONG)
+    private String mainBackgroundUrl;
+
+    @Column(name = "contact_background_url", length = Length.LONG)
+    private String contactBackgroundUrl;
+
+    @Column(name = "information_url", length = Length.LONG)
+    private String informationUrl;
+
     @Column(name = "created_time")
     private LocalDateTime createdTime;
-    @Basic
+    
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;

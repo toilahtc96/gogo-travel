@@ -20,19 +20,19 @@ public class Address {
     @Id
     @Column(name = "id")
     private Integer id;
-    @Basic
+    
     @Column(name = "address_name")
     private String addressName;
-    @Basic
+    
     @Column(name = "detail")
     private String detail;
-    @Basic
+    
     @Column(name = "thumbnail")
     private String thumbnail;
-    @Basic
+    
     @Column(name = "created_time")
     private LocalDateTime createdTime;
-    @Basic
+    
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private Status status;

@@ -31,13 +31,19 @@ public class PostService {
         if (post == null) {
             return false;
         }
-        post.setUserId(postRequest.getUserId());
-        post.setAddressId(postRequest.getAddressId());
-        post.setTitle(postRequest.getTitle());
-        post.setContent(postRequest.getContent());
-        post.setThumbnail(postRequest.getThumbnail());
-        post.setThumbnail(postRequest.getContentImage());
+
+        post.setTourCode(postRequest.getTourCode());
+        post.setDayInTour(postRequest.getDayInTour());
+        post.setTourName(postRequest.getTourName());
+        post.setTourSmallInformation(postRequest.getTourSmallInformation());
+        post.setPriceOncePerson(postRequest.getPriceOncePerson());
+        post.setBenefit(postRequest.getBenefit());
+        post.setSpecialInTour(postRequest.getSpecialInTour());
         post.setStatus(postRequest.getStatus());
+        post.setMainBackgroundUrl(postRequest.getMainBackgroundUrl());
+        post.setContactBackgroundUrl(postRequest.getContactBackgroundUrl());
+        post.setInformationUrl(postRequest.getInformationUrl());
+
         try {
             postRepository.save(post);
             return true;
@@ -52,6 +58,10 @@ public class PostService {
 
     public List<Posts> getAll() {
         return postRepository.findAll();
+    }
+
+    public List<Posts> getAllActive() {
+        return postRepository.findAllByStatus(Status.ACTIVE);
     }
 
     public boolean deleteById(int id) {
