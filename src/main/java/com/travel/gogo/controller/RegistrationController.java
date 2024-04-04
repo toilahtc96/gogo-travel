@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/registration")
@@ -42,7 +43,7 @@ public class RegistrationController {
     @GetMapping("/get-all")
     public ResponseEntity<List<Registrations>> getAll() {
         List<Registrations> registrations = registrationService.getAll();
-        return ResponseEntity.ok(registrations);
+        return ResponseEntity.ok(registrations.stream().sorted((item1,item2) -> item2.getId().compareTo(item1.getId())).collect(Collectors.toList()));
     }
 
     @GetMapping("/get-page")

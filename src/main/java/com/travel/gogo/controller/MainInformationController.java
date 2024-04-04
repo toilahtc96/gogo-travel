@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @AllArgsConstructor
@@ -26,7 +27,7 @@ public class MainInformationController {
     @GetMapping("/get-all")
     public ResponseEntity<List<MainInformation>> getAllMainInformation() {
         List<MainInformation> mainInformations = mainInformationService.getAll();
-        return ResponseEntity.ok(mainInformations);
+        return ResponseEntity.ok(mainInformations.stream().sorted((item1,item2) -> item2.getId().compareTo(item1.getId())).collect(Collectors.toList()));
     }
 
     @GetMapping("/get-first-active")

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/company-information")
@@ -54,7 +55,7 @@ public class CompanyInformationController {
     @GetMapping("/get-all")
     public ResponseEntity<List<CompanyInformation>> getAll() {
         List<CompanyInformation> companyInformations = companyInformationService.getAll();
-        return ResponseEntity.ok(companyInformations);
+        return ResponseEntity.ok(companyInformations.stream().sorted((item1,item2) -> item2.getId().compareTo(item1.getId())).collect(Collectors.toList()));
     }
 
     @DeleteMapping("/delete")

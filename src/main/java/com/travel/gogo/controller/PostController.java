@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api/v1/post")
@@ -42,7 +43,7 @@ public class PostController {
     @GetMapping("/get-all")
     public ResponseEntity<List<Posts>> getAll() {
         List<Posts> posts = postService.getAll();
-        return ResponseEntity.ok(posts);
+        return ResponseEntity.ok(posts.stream().sorted((item1,item2) -> item2.getId().compareTo(item1.getId())).collect(Collectors.toList()));
     }
 
     @DeleteMapping("/delete")
