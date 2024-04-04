@@ -14,4 +14,5 @@ import java.util.List;
 public interface RegistrationRepository extends CrudRepository<Registrations, Integer> {
 
     List<Registrations> findAll(Pageable pageable);
+    List<Registrations> findAllBySendMailIsFalseOrSendMailIsNull();
 }

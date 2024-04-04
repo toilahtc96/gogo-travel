@@ -78,4 +78,15 @@ public class RegistrationService {
             return false;
         }
     }
+
+    public List<Registrations> getRegistrationWithOutSendMail() {
+        return registrationRepository.findAllBySendMailIsFalseOrSendMailIsNull();
+    }
+
+    public void updateSendMail(List<Registrations> registrations) {
+        registrations.forEach( registration -> {
+            registration.setSendMail(Boolean.TRUE);
+        });
+        registrationRepository.saveAll(registrations);
+    }
 }
