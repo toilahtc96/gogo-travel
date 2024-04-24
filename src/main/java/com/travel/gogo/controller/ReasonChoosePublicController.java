@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("public/reason-choose")
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://gogotravelvn.com/","https://gogotravalvn.com", "http://localhost:3000"})
 public class ReasonChoosePublicController {
 
     private final ReasonChooseService reasonChooseService;

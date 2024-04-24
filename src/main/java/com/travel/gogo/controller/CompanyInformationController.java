@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("api/v1/company-information")
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://gogotravelvn.com/","https://gogotravalvn.com", "http://localhost:3000"})
 public class CompanyInformationController {
     private final CompanyInformationService companyInformationService;
 

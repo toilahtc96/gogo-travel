@@ -5,10 +5,13 @@ import com.travel.gogo.entity.Registrations;
 import com.travel.gogo.service.RegistrationService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.vault.annotation.VaultPropertySource;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -16,16 +19,19 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 @Slf4j
+@VaultPropertySource("secret/gogo")
 public class MailService {
     public final JavaMailSender emailSender;
     public final RegistrationService registrationService;
+    @Autowired
+    Environment env;
 
     private void sendSimpleEmail(List<Registrations> listSendMail) {
 
         // Create a Simple MailMessage.
         SimpleMailMessage message = new SimpleMailMessage();
 
-        message.setTo(MyConstants.FRIEND_EMAIL);
+        message.setTo(env.getProperty(MyConstants.CUSTOMER_EMAIL));
         message.setSubject("Khách Hàng Mới Đăng Ký Trên Website");
         StringBuilder content = new StringBuilder();
         listSendMail.forEach( customer -> {

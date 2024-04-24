@@ -5,22 +5,28 @@ import com.travel.gogo.repository.UserRepository;
 import io.jsonwebtoken.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.vault.annotation.VaultPropertySource;
 
 import java.util.Date;
 
 @Slf4j
 @Service
 @AllArgsConstructor
+@VaultPropertySource("secret/gogo")
 public class JwtTokenProvider {
 
+    @Autowired
+    Environment env;
     private final UserRepository userRepository;
-    private final String secretKey = "my-secret-key"; // Replace with a strong secret
+
 
     public String generateToken(Users user) {
         Date now = new Date();
@@ -30,13 +36,13 @@ public class JwtTokenProvider {
                 .setSubject(user.getUsername())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
-                .signWith(SignatureAlgorithm.HS512, secretKey)
+                .signWith(SignatureAlgorithm.HS512, env.getProperty("jwt_secret"))
                 .compact();
     }
 
     public String getUsernameFromToken(String token) {
         return Jwts.parser()
-                .setSigningKey(secretKey)
+                .setSigningKey(env.getProperty("jwt_secret"))
                 .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
@@ -44,7 +50,7 @@ public class JwtTokenProvider {
 
     public boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
+            Jwts.parser().setSigningKey(env.getProperty("jwt_secret")).parseClaimsJws(token);
             return true;
         } catch (SignatureException ex) {
             log.error("Invalid JWT signature");

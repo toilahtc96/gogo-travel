@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/v1/main-information")
-@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://gogotravelvn.com/","https://gogotravalvn.com", "http://localhost:3000"})
 public class MainInformationController {
 
     private final MainInformationService mainInformationService;

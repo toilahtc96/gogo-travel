@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("public/tour")
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://gogotravelvn.com/","https://gogotravalvn.com", "http://localhost:3000"})
 public class PostPublicController {
     private final PostService postService;
     private final static int NUMBER_TOUR_SHOW = 10;

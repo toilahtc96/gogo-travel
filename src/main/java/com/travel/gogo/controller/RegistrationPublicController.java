@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("public/registration")
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://gogotravelvn.com/","https://gogotravalvn.com", "http://localhost:3000"})
 public class RegistrationPublicController {
     private final RegistrationService registrationService;
 

@@ -12,7 +12,7 @@ import java.util.List;
 @RestController
 @RequestMapping("public/main-information")
 @AllArgsConstructor
-@CrossOrigin(origins = {"http://gogotravelvn.com/", "http://localhost:3000"})
+@CrossOrigin(origins = {"http://gogotravelvn.com/","https://gogotravalvn.com", "http://localhost:3000"})
 public class MainInformationPublicController {
 
     private final MainInformationService mainInformationService;
